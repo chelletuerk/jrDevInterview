@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/chelletuerk/jrDevInterview.git"
+    "url": "https://github.com/chelletuerk/jrDevInterview.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "http://github.com/chelletuerk/jrDevInterview/issues"
+    "url": "https://github.com/chelletuerk/jrDevInterview/issues"
   },
-  "homepage": "http://github.com/chelletuerk/jrDevInterview#readme"
+  "homepage": "https://github.com/chelletuerk/jrDevInterview#readme"
 }
