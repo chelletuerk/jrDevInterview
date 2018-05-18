@@ -16,11 +16,10 @@ $(document).ready(function() {
 })
 
 const renderMarketName = (market) => {
-  const marketName = market.marketname
-    .split(' ')
-    .splice(1, market.marketname.length)
-    .join(' ')
-  $('.display').append(`<li id=${market.id} class="market">${marketName}</li>`)
+  const arr = market.marketname.split(' ')
+  market.distance = arr[0]
+  market.name = arr.slice(1).join(' ')
+  $('.display').append(`<li id=${market.id} class="market">${market.name}</li>`)
 }
 
 const onClick = () => {
