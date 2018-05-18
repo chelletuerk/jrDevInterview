@@ -16,25 +16,19 @@ const marketOnClick = () => {
     $('.popup').html(`<div class="clicked-market">${market.name} is ${market.distance} miles from ${zip}</div>`)
     $('.popup').css("height", "300px")
     $('.popup').append(`<button type="button" class="modal-btn" onclick="closeModal()" name="close">Close</button>`)
-
     $('.modal-btn').css("height", "50px")
-
   })
 }
 
 const closeModal = () => {
   $('.popup').css("height", "0")
   $('.modal-btn, .clicked-market').remove()
-
 }
-
-// $('.modal-close').click(() => {
-//   console.log('fjdksal')
-// })
 
 const onSubmit = () => {
   markets = []
   zip = $('.zip').val()
+  $('.zip').val('')
   $('.display').html('')
   $.ajax({
     type: 'GET',

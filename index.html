@@ -6,12 +6,18 @@
     <title></title>
   </head>
   <body>
-      <input type="number" class="zip" placeholder="Enter Zip Code"/>
-      <button class="modal" type="button" onclick="onSubmit()" name="submit">Submit</button>
+    <h1 class="title">Local Area Farmers' Markets</h1>
+    <div class="input-submit">
+      <input type="number" class="zip" placeholder="Enter Zip Code"/><br/>
+      <button
+        class="submit"
+        type="button"
+        onclick="onSubmit()"
+        name="submit">Submit
+      </button>
+    </div>
       <ul class="display"></ul>
       <div class="popup">
-        <!-- <button type="button" class="modal-btn" onclick="closeModal()" name="close">Close</button> -->
-        <!-- <span class="modal-btn">Close</span> -->
       </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
