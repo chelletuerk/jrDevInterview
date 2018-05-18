@@ -1,0 +1,34 @@
+html {
+  background-color: lightblue;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.popup {
+  height: 0;
+  width: 300px;
+  background-color: blue;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:999;
+  border-radius: 4px;
+  z-index: 999;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+
+.modal-btn {
+  height: 0;
+  width: 100px;
+  background-color: white;
+  margin-left: 33%;
+  margin-top: 66%;
+  border-radius: 4px;
+}
