@@ -1,19 +1,5 @@
-const markets = []
-
-$(document).ready(function() {
-  $.ajax({
-    type: 'GET',
-    url: 'http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=80301',
-    success: function(res) {
-      markets.push(...res.results)
-      console.log(markets)
-      markets.forEach(function(market) {
-        renderMarketName(market)
-      })
-      onClick()
-    }
-  })
-})
+let zip = null
+let markets = []
 
 const renderMarketName = (market) => {
   const arr = market.marketname.split(' ')
@@ -22,11 +8,29 @@ const renderMarketName = (market) => {
   $('.display').append(`<li id=${market.id} class="market">${market.name}</li>`)
 }
 
-const onClick = () => {
+const marketOnClick = () => {
   $('.market').on('click', (e) => {
     const id = e.target.id
     const index = markets.findIndex((obj) => obj.id === id)
     const market = markets[index]
-    $('.popup').html(`<div>${market.name} is ${market.distance} miles from 80301</div>`)
+    $('.popup').html(`<div>${market.name} is ${market.distance} miles from ${zip}</div>`)
+  })
+}
+
+const onSubmit = () => {
+  markets = []
+  zip = $('.zip').val()
+  $('.display').html('')
+  $.ajax({
+    type: 'GET',
+    url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
+    success: function(res) {
+      markets.push(...res.results)
+      console.log(markets)
+      markets.forEach(function(market) {
+        renderMarketName(market)
+      })
+      marketOnClick()
+    }
   })
 }
