@@ -2,13 +2,17 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css"></script>
     <title></title>
   </head>
   <body>
-      <input class="zip" placeholder="Enter Zip Code"/>
-      <button type="button" onclick="onSubmit()" name="submit">Submit</button>
+      <input type="number" class="zip" placeholder="Enter Zip Code"/>
+      <button class="modal" type="button" onclick="onSubmit()" name="submit">Submit</button>
       <ul class="display"></ul>
-      <div class="popup"></div>
+      <div class="popup">
+        <button type="button" class="modal-btn" onclick="closeModal()" name="close">Close</button>
+        <!-- <span class="modal-btn">Close</span> -->
+      </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="main.js"></script>
   </body>

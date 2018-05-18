@@ -2,6 +2,7 @@ let zip = null
 let markets = []
 
 const renderMarketName = (market) => {
+  console.log(market.error  )
   const arr = market.marketname.split(' ')
   market.distance = arr[0]
   market.name = arr.slice(1).join(' ')
@@ -14,8 +15,18 @@ const marketOnClick = () => {
     const index = markets.findIndex((obj) => obj.id === id)
     const market = markets[index]
     $('.popup').html(`<div>${market.name} is ${market.distance} miles from ${zip}</div>`)
+    $('.popup').css("height", "300px")
   })
 }
+
+const closeModal = () => {
+  $('.modal-btn').css("display", "block")
+  console.log('fjdksal')
+}
+
+// $('.modal-close').click(() => {
+//   console.log('fjdksal')
+// })
 
 const onSubmit = () => {
   markets = []
@@ -26,7 +37,11 @@ const onSubmit = () => {
     url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
     success: function(res) {
       markets.push(...res.results)
-      console.log(markets)
+      if (markets[0].id === 'Error') {
+        alert('Please Enter a Valid Zip Code')
+        $('.zip').val('')
+        return
+      }
       markets.forEach(function(market) {
         renderMarketName(market)
       })
