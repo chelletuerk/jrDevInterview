@@ -24,6 +24,9 @@ const renderMarketName = (market) => {
 
 const onClick = () => {
   $('.market').on('click', (e) => {
-    const marketId = e.target.id
+    const id = e.target.id
+    const index = markets.findIndex((obj) => obj.id === id)
+    const market = markets[index]
+    $('.popup').html(`<div>${market.name} is ${market.distance} miles from 80301</div>`)
   })
 }
