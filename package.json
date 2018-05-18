@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/chelletuerk/jrDevInterview/issues"
   },
-  "homepage": "https://github.com/chelletuerk/jrDevInterview#readme"
+  "homepage": "https://github.com/chelletuerk/jrDevInterview#readme",
+  "dependencies": {
+    "animate.css": "^3.6.1"
+  }
 }

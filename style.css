@@ -8,7 +8,7 @@ body {
 }
 .popup {
   height: 0;
-  width: 300px;
+  width: 500px;
   background-color: blue;
   position: absolute;
   top: 50%;
@@ -17,6 +17,7 @@ body {
   z-index:999;
   border-radius: 4px;
   z-index: 999;
+  overflow-y: scroll;
 }
 
 li {
@@ -43,6 +44,10 @@ li:hover {
   width: 13em;
 }
 
+.details {
+  font-size: 15px;
+}
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -62,15 +67,45 @@ input[type=number] {
     margin-bottom: 20px;
 }
 
+.submit:hover {
+  cursor: pointer;
+}
+
 .title {
   text-align: center;
+  margin-top: 100px;
 }
 
 .modal-btn {
   height: 0;
-  width: 100px;
+  width: 30px;
   background-color: white;
   margin-left: 33%;
-  margin-top: 66%;
+  margin-top: 40%;
   border-radius: 4px;
+  position: absolute;
+  top: -190px;
+  right: 10px;
+}
+
+.display {
+  margin-top: 30px;
+}
+
+.clicked-market {
+  margin-top: 80px;
+  text-align: center;
+  cursor: default;
+}
+
+span {
+  cursor: default;
+}
+
+span:hover {
+  color: black;
+}
+
+.google {
+  cursor: pointer;
 }
