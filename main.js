@@ -1,17 +1,32 @@
+const markets = []
+
 $(document).ready(function() {
   $.ajax({
     type: 'GET',
     url: 'http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=80301',
     success: function(res) {
-      console.log(res)
-      res.results.forEach(function(res) {
-        renderMarketName(res)
+      markets.push(...res.results)
+      console.log(markets)
+      markets.forEach(function(market) {
+        renderMarketName(market)
       })
+      onClick()
     }
   })
 })
 
+const renderMarketName = (market) => {
+  const arr = market.marketname.split(' ')
+  market.distance = arr[0]
+  market.name = arr.slice(1).join(' ')
+  $('.display').append(`<li id=${market.id} class="market">${market.name}</li>`)
+}
 
-const renderMarketName = (res) => {
-  return $('.display').append('<li>' + res  .marketname + '</li>')
+const onClick = () => {
+  $('.market').on('click', (e) => {
+    const id = e.target.id
+    const index = markets.findIndex((obj) => obj.id === id)
+    const market = markets[index]
+    $('.popup').html(`<div>${market.name} is ${market.distance} miles from 80301</div>`)
+  })
 }
