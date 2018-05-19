@@ -15,7 +15,7 @@ const marketOnClick = () => {
     const index = markets.findIndex((obj) => obj.id === id)
     const market = markets[index]
     getIdData(id)
-    $('.popup').html(`<div class="clicked-market">${market.name} is ${market.distance} miles from ${zip}</div>`)
+    $('.popup').html(`<div class="clicked-market">${market.name}<br/><span class="zip-distance">(${market.distance} miles from ${zip})</span></div>`)
     $('.popup').css("height", "400px")
     $('.popup').append(`<button type="button" class="modal-btn" onclick="closeModal()" name="close">X</button>`)
     $('.modal-btn').css("height", "20px")
@@ -56,10 +56,10 @@ const getIdData = (id) => {
     url: `https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=${id}`,
     success: function(res) {
       $('.clicked-market').append(
-        '<li class="details"><span>' + res.marketdetails.Address + '</span>' +
-        '</li><br/>' + '<li class="details"><span class="google">Google Link: </span>' + res.marketdetails.GoogleLink +
-        '</li><br/>' + '<li class="details"><span>' + res.marketdetails.Products + '</span>' +
-        '</li><br/>' + '<li class="details"><span>' + res.marketdetails.Schedule + '<s/pan></li>')
+       `<li class="details"><span>${res.marketdetails.Address}</span></li>
+        <li class="details"><a class="google" href="${res.marketdetails.GoogleLink}" target="_blank">Click for Google Map</a></li>
+        <li class="details products"><span>${res.marketdetails.Products}</span></li>
+        <li class="details schedule"><span>${res.marketdetails.Schedule}<span></li>`)
     }
   })
 }
