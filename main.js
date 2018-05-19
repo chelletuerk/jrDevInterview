@@ -34,7 +34,7 @@ const onSubmit = () => {
   $('.display').html('')
   $.ajax({
     type: 'GET',
-    url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
+    url: `https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
     success: function(res) {
       markets.push(...res.results)
       if (markets[0].id === 'Error') {
