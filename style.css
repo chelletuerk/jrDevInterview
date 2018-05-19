@@ -29,6 +29,7 @@ body {
   border-radius: 4px;
   z-index: 999;
   overflow-y: scroll;
+  box-shadow: 9px 10px 24px 1px #404040;
 }
 
 .market {
@@ -41,10 +42,12 @@ body {
     padding: 15px;
     color: lightgray;
     font-weight: bold;
+    transition: all 0.2s ease;
 }
 
 .market:hover {
   color: red;
+  transform:scale(1.5);
 }
 
 .zip {
@@ -102,11 +105,12 @@ input[type="number"] {
 
 .title {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 80px;
   font-family: 'Montserrat Subrayada', sans-serif;
   font-weight: bolder;
   font-size: 60px;
   color: lightgray;
+  text-shadow: darkgray 2px 2px 2px;
 }
 
 .modal-btn {
