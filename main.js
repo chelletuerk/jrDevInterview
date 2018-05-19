@@ -50,6 +50,12 @@ const onSubmit = () => {
   })
 }
 
+$('input').keydown(function(e) {
+  if (e.keyCode == 13) {
+    $('.submit').click()
+  }
+})
+
 const getIdData = (id) => {
   $.ajax({
     type: 'GET',
