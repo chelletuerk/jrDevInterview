@@ -2,6 +2,10 @@ let zip = null
 let markets = []
 let details = []
 
+$(document).ready(function(){
+  disableSubmit()
+})
+
 const renderMarketName = (market) => {
   const arr = market.marketname.split(' ')
   market.distance = arr[0]
@@ -28,13 +32,14 @@ const closeModal = () => {
 }
 
 const onSubmit = () => {
+  $('.modal-btn').click()
   markets = []
   zip = $('.zip').val()
   $('.zip').val('')
   $('.display').html('')
   $.ajax({
     type: 'GET',
-    url: `http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
+    url: `https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=${zip}`,
     success: function(res) {
       markets.push(...res.results)
       if (markets[0].id === 'Error') {
@@ -52,9 +57,21 @@ const onSubmit = () => {
 
 $('input').keydown(function(e) {
   if (e.keyCode == 13) {
+    $('.modal-btn').click()
+    disableSubmit()
     $('.submit').click()
   }
 })
+
+const disableSubmit = () => {
+  $('.submit').attr('disabled',true)
+  $('.zip').keyup(function(){
+      if($(this).val().length !=0)
+          $('.submit').attr('disabled', false)
+      else
+          $('.submit').attr('disabled',true)
+  })
+}
 
 const getIdData = (id) => {
   $.ajax({
