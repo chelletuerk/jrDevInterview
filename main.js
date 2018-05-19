@@ -2,6 +2,10 @@ let zip = null
 let markets = []
 let details = []
 
+$(document).ready(function(){
+  disableSubmit()
+})
+
 const renderMarketName = (market) => {
   const arr = market.marketname.split(' ')
   market.distance = arr[0]
@@ -28,6 +32,7 @@ const closeModal = () => {
 }
 
 const onSubmit = () => {
+  $('.modal-btn').click()
   markets = []
   zip = $('.zip').val()
   $('.zip').val('')
@@ -52,9 +57,21 @@ const onSubmit = () => {
 
 $('input').keydown(function(e) {
   if (e.keyCode == 13) {
+    $('.modal-btn').click()
+    disableSubmit()
     $('.submit').click()
   }
 })
+
+const disableSubmit = () => {
+  $('.submit').attr('disabled',true)
+  $('.zip').keyup(function(){
+      if($(this).val().length !=0)
+          $('.submit').attr('disabled', false)
+      else
+          $('.submit').attr('disabled',true)
+  })
+}
 
 const getIdData = (id) => {
   $.ajax({
