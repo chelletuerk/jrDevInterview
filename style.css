@@ -29,7 +29,6 @@ body {
   border-radius: 4px;
   z-index: 999;
   overflow-y: scroll;
-  box-shadow: 9px 10px 24px 1px #404040;
 }
 
 .market {
