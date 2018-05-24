@@ -108,17 +108,11 @@ input[type="tel"] {
 .modal-btn {
   display: none;
   background-color: white;
-  /* margin-left: 33%; */
-  /* margin-top: 40%; */
   border-radius: 4px;
-  /* position: absolute; */
-  /* top: -234px; */
-  /* right: 33px; */
   color: white;
   background-color: black;
   margin-left: 1%;
   margin-top: 1%;
-  /* position: fixed; */
 }
 
 .display {
