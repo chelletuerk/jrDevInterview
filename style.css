@@ -19,12 +19,13 @@ body {
 .popup {
   background: linear-gradient(to top left, red, darkgray);
   height: 0;
-  width: 600px;
+  width: 40%;
+  min-width: 300px;
   background-color: blue;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(-44%, -19%);
   z-index:999;
   border-radius: 4px;
   z-index: 999;
@@ -115,17 +116,19 @@ input[type="number"] {
 }
 
 .modal-btn {
-  height: 0;
-  width: 30px;
+  display: none;
   background-color: white;
-  margin-left: 33%;
-  margin-top: 40%;
+  /* margin-left: 33%; */
+  /* margin-top: 40%; */
   border-radius: 4px;
-  position: absolute;
-  top: -234px;
-  right: 8px;
+  /* position: absolute; */
+  /* top: -234px; */
+  /* right: 33px; */
   color: white;
   background-color: black;
+  margin-left: 1%;
+  margin-top: 1%;
+  /* position: fixed; */
 }
 
 .display {

@@ -20,9 +20,9 @@ const marketOnClick = () => {
     const market = markets[index]
     getIdData(id)
     $('.popup').html(`<div class="clicked-market">${market.name}<br/><span class="zip-distance">(${market.distance} miles from ${zip})</span></div>`)
-    $('.popup').css("height", "400px")
+    $('.popup').css("height", "50%")
     $('.popup').css("box-shadow", "9px 10px 24px 1px #404040")
-    $('.popup').append(`<button type="button" class="modal-btn" onclick="closeModal()" name="close">X</button>`)
+    $('.popup').prepend(`<button type="button" class="modal-btn" style="width:30px; display:inline-block;" onclick="closeModal()" name="close">X</button>`)
     $('.modal-btn').css("height", "20px")
   })
 }
